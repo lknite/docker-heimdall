@@ -3,3 +3,8 @@
 sed -i "s/            'driver' => 'session',/            'driver' => 'keycloak-web',/g" /var/www/localhost/heimdall/config/auth.php
 sed -i "s/            'driver' => 'eloquent',/            'driver' => 'keycloak-users',/g" /var/www/localhost/heimdall/config/auth.php
 sed -i 's/App\\User/Vizir\\KeycloakWebGuard\\Models\\KeycloakUser/g' /var/www/localhost/heimdall/config/auth.php
+
+php artisan cache:clear
+php artisan route:cache
+php artisan view:clear
+php artisan config:cache
