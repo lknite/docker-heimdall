@@ -34,8 +34,8 @@ pipeline {
           }
           sh 'docker build -t "harbor.vc-prod.k.home.net/library/docker-heimdall:0.0.${BUILD_NUMBER}" .'
           sh 'docker image push "harbor.vc-prod.k.home.net/library/docker-heimdall:0.0.${BUILD_NUMBER}"'
-          sh 'docker build -t "harbor.vc-prod.k.home.net/library/:latest" .'
-          sh 'docker image push "harbor.vc-prod.k.home.net/library/:latest"'
+          sh 'docker build -t "harbor.vc-prod.k.home.net/library/docker-heimdall:latest" .'
+          sh 'docker image push "harbor.vc-prod.k.home.net/library/docker-heimdall:latest"'
         }
       }
     }
