@@ -32,8 +32,8 @@ pipeline {
           withCredentials([file(credentialsId: 'docker-config', variable: 'DOCKERCONFIG')]) {
             sh "cp \$DOCKERCONFIG \$HOME/.docker/config.json"
           }
-          sh 'docker build -t "harbor.k.home.net/library/docker-heimdall:0.0.${BULID_NUMBER}" .'
-          sh 'docker image push "harbor.k.home.net/library/docker-heimdall:0.0.${BULID_NUMBER}"'
+          sh 'docker build -t "harbor.k.home.net/library/docker-heimdall:0.0.${BUILD_NUMBER}" .'
+          sh 'docker image push "harbor.k.home.net/library/docker-heimdall:0.0.${BUILD_NUMBER}"'
           sh 'docker build -t "harbor.k.home.net/library/:latest" .'
           sh 'docker image push "harbor.k.home.net/library/:latest"'
         }
