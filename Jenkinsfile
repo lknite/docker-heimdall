@@ -17,7 +17,7 @@ pipeline {
   stages {
     stage('Git clone') {
       steps {
-        git branch: 'main', credentialsId: 'github-lknite',
+        git branch: 'master', credentialsId: 'github-lknite',
           url: 'https://github.com/lknite/docker-heimdall.git'
       }
     }
