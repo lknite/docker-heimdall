@@ -29,7 +29,7 @@ RUN \
  echo "**** install composer ****" && \
  curl -s https://getcomposer.org/installer | php && \
  echo "**** install oidc plugin ****" && \
- php /composer.phar require vizir/laravel-keycloak-web-guard:2.3.3 --update-with-dependencies --with-all-dependencies && \
+ php /composer.phar require vizir/laravel-keycloak-web-guard --update-with-dependencies --with-all-dependencies && \
  echo "**** install heimdall ****" && \
  mkdir -p \
 	/heimdall && \
