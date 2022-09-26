@@ -26,11 +26,11 @@ pipeline {
         container('docker') {
           sh 'docker version'
           withCredentials([file(credentialsId: 'ca-bundle-pem-format', variable: 'CABUNDLE')]) {
-            sh "cp \$CABUNDLE /etc/ssl/certs/ca-bundle.crt"
+            sh "cp \"\$CABUNDLE\" /etc/ssl/certs/ca-bundle.crt"
           }
           sh 'docker logout harbor.vc-prod.k.home.net'
           withCredentials([file(credentialsId: 'docker-config', variable: 'DOCKERCONFIG')]) {
-            sh "cp \$DOCKERCONFIG \$HOME/.docker/config.json"
+            sh "cp \"\$DOCKERCONFIG\" \$HOME/.docker/config.json"
           }
           sh 'docker build --network host -t "harbor.vc-prod.k.home.net/library/docker-heimdall:0.0.${BUILD_NUMBER}" .'
           sh 'docker image push "harbor.vc-prod.k.home.net/library/docker-heimdall:0.0.${BUILD_NUMBER}"'
