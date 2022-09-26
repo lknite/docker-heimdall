@@ -28,7 +28,7 @@ pipeline {
           withCredentials([file(credentialsId: 'ca-bundle-pem-format', variable: 'CABUNDLE')]) {
             sh "cp \$CABUNDLE /etc/ssl/certs/ca-bundle.crt"
           }
-          sh 'docker logout harbor.k.home.net'
+          sh 'docker logout harbor.vc-prod.k.home.net'
           withCredentials([file(credentialsId: 'docker-config', variable: 'DOCKERCONFIG')]) {
             sh "cp \$DOCKERCONFIG \$HOME/.docker/config.json"
           }
