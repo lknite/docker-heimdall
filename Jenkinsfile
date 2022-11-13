@@ -11,6 +11,10 @@ pipeline {
             tty: true
             securityContext:
               privileged: true
+            resources:
+              limits:
+                memory: 512m
+                cpu: 512Mi
         '''
     }
   }
