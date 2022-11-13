@@ -12,9 +12,12 @@ pipeline {
             securityContext:
               privileged: true
             resources:
+              requests:
+                cpu: 512m
+                memory: 512Mi
               limits:
-                memory: 512m
-                cpu: 512Mi
+                cpu: 512m
+                memory: 512Mi
         '''
     }
   }
