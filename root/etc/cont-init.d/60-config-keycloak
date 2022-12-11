@@ -3,6 +3,9 @@
 # skip oidc configuration
 #exit 0
 
+ls /app/www > /tmp/one.txt
+find /var/www/localhost/heimdall > /tmp/two.txt
+
 # Can't put this in the Dockerfile cause heimdall wasn't installed until 50-config runs
 echo "**** install oidc plugin ****"
 pushd /app/www
