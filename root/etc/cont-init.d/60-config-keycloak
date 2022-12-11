@@ -1,7 +1,7 @@
 #!/usr/bin/with-contenv bash
 
 # skip oidc configuration
-exit 0
+#exit 0
 
 sed -i "s/            'driver' => 'session',/            'driver' => 'keycloak-web',/g" /var/www/localhost/heimdall/config/auth.php
 sed -i "s/            'driver' => 'eloquent',/            'driver' => 'keycloak-users',/g" /var/www/localhost/heimdall/config/auth.php
