@@ -3,14 +3,11 @@
 # skip oidc configuration
 #exit 0
 
-ls /app/www > /tmp/one.txt
-find /var/www/localhost/heimdall > /tmp/two.txt
-
 # Can't put this in the Dockerfile cause heimdall wasn't installed until 50-config runs
 echo "**** install oidc plugin ****"
 pushd /app/www
 rm composer.lock
-php /composer.phar require vizir/laravel-keycloak-web-guard --update-with-dependencies --with-all-dependencies
+php /composer.phar require vizir/laravel-keycloak-web-guard --update-with-dependencies --with-all-dependencies 1> /tmp/one.txt 2> /tmp/two.txt
 popd
 
 # adjust laravel to use the oidc config
