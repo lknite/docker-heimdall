@@ -5,7 +5,10 @@
 
 # Can't put this in the Dockerfile cause heimdall wasn't installed until 50-config runs
 echo "**** install oidc plugin ****"
-php /composer.phar -d /var/www/localhost/heimdall/vendor require vizir/laravel-keycloak-web-guard --update-with-dependencies --with-all-dependencies
+pushd /app/www
+rm composer.lock
+php /composer.phar require vizir/laravel-keycloak-web-guard --update-with-dependencies --with-all-dependencies
+popd
 
 # adjust laravel to use the oidc config
 sed -i "s/            'driver' => 'session',/            'driver' => 'keycloak-web',/g" /app/www/config/auth.php
