@@ -8,7 +8,7 @@ RUN \
  echo "**** install composer ****" && \
  curl -s https://getcomposer.org/installer | php && \
  echo "**** install oidc plugin ****" && \
- php /composer.phar -d /app/www/vendor require vizir/laravel-keycloak-web-guard --update-with-dependencies --with-all-dependencies
+ php /composer.phar -d /var/www/localhost/heimdall/vendor require vizir/laravel-keycloak-web-guard --update-with-dependencies --with-all-dependencies
 
 # add local files
 COPY root/etc/cont-init.d/60-config-keycloak /etc/cont-init.d/
