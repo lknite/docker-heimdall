@@ -5,7 +5,7 @@ RUN \
  echo "**** install runtime packages ****" && \
  apk add --no-cache --upgrade \
    php8-phar \
-   php8-xml && \
+   php8-dom && \
  curl -s https://getcomposer.org/installer | php && \
  echo "**** install composer ****" && \
  curl -s https://getcomposer.org/installer | php
