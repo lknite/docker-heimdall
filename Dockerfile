@@ -3,8 +3,9 @@ FROM linuxserver/heimdall:2.5.4
 
 RUN \
  echo "**** install runtime packages ****" && \
- apk add --no-cache --upgrade php8-phar && \
- apk add --no-cache --upgrade php8-xml && \
+ apk add --no-cache --upgrade \
+   php8-phar \
+   php8-xml && \
  curl -s https://getcomposer.org/installer | php && \
  echo "**** install composer ****" && \
  curl -s https://getcomposer.org/installer | php
