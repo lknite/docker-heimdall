@@ -7,9 +7,9 @@ sed -i "s/            'driver' => 'session',/            'driver' => 'keycloak-w
 sed -i "s/            'driver' => 'eloquent',/            'driver' => 'keycloak-users',/g" /app/www/config/auth.php
 sed -i 's/App\\User/Vizir\\KeycloakWebGuard\\Models\\KeycloakUser/g' /app/www/config/auth.php
 
-#pushd /var/www/localhost/heimdall
+pushd /app/www
 ##php artisan cache:clear
 ##php artisan route:cache
-#php artisan view:clear
-#php artisan config:cache
-#popd
+php artisan view:clear
+php artisan config:cache
+popd
