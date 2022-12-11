@@ -14,4 +14,5 @@ RUN \
  php /composer.phar require vizir/laravel-keycloak-web-guard --update-with-dependencies --with-all-dependencies
 
 # add local files
-COPY root/ /
+COPY root/etc/cont-init.d/60-config-keycloak /etc/cont-init.d/
+
