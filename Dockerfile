@@ -4,7 +4,8 @@ FROM linuxserver/heimdall:2.5.4
 RUN \
  echo "**** install runtime packages ****" && \
  apk add --no-cache --upgrade \
-   php8-phar && \
+   php8-phar \
+   php8-xml && \
  curl -s https://getcomposer.org/installer | php && \
  echo "**** install composer ****" && \
  curl -s https://getcomposer.org/installer | php
@@ -14,7 +15,6 @@ RUN \
 # add local files
 COPY root/etc/cont-init.d/60-config-keycloak /etc/cont-init.d/
 
-#   php8-xml && \
 # echo "**** link /vendor to heimdall vendor folder ****" && \
 # mkdir /var/www/localhost/heimdall/vendor && \
 # ln -s /var/www/localhost/heimdall/vendor /vendor && \
