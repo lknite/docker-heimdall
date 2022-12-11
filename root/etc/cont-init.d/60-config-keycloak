@@ -8,6 +8,8 @@ echo "**** install oidc plugin ****"
 pushd /app/www
 rm composer.lock
 php /composer.phar require vizir/laravel-keycloak-web-guard --update-with-dependencies --with-all-dependencies
+apk add --no-cache --update php8-xml
+php /composer.phar require vizir/laravel-keycloak-web-guard --update-with-dependencies --with-all-dependencies
 popd
 
 # adjust laravel to use the oidc config
