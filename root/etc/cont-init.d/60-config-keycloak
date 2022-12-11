@@ -16,8 +16,7 @@ popd
 # permissions
 # (this was done in 50-config but we need to do it again to correct what we just installed)
 echo "Setting permissions"
-chown -R abc:abc /var/www/localhost/heimdall
-chown -R abc:abc /config
+chown -R abc:abc /app/www
 
 
 # adjust laravel to use the oidc config
