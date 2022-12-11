@@ -9,7 +9,8 @@ pushd /app/www
 echo "**** install oidc plugin ****"
 rm composer.lock
 export HOME=/root
-php /composer.phar require vizir/laravel-keycloak-web-guard --update-with-dependencies --with-all-dependencies 1> /tmp/one.txt 2> /tmp/two.txt
+php /composer.phar require maicol07/laravel-oidc-client --update-with-dependencies --with-all-dependencies 1> /tmp/one.txt 2> /tmp/two.txt
+#php /composer.phar require vizir/laravel-keycloak-web-guard --update-with-dependencies --with-all-dependencies 1> /tmp/one.txt 2> /tmp/two.txt
 
 popd
 
