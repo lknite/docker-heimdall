@@ -21,8 +21,11 @@ chown -R abc:abc /app/www
 
 
 ## adjust laravel to use the oidc config
+sed -i '/^.*providers.*/a \ \ \ \ \ \ \ \ Maicol07\\OIDCClient\\OIDCServiceProvider::class,' /app/www/config/app.php
+
 sed -i "s/            'driver' => 'session',/            'driver' => 'oidc',/g" /app/www/config/auth.php
 sed -i "s/            'model' => App\\\\User/            'model' => Maicol07\\\\OIDCClient\\\\User/g" /app/www/config/auth.php
+
 #sed -i "s/            'driver' => 'session',/            'driver' => 'keycloak-web',/g" /app/www/config/auth.php
 #sed -i "s/            'driver' => 'eloquent',/            'driver' => 'keycloak-users',/g" /app/www/config/auth.php
 #sed -i 's/App\\User/Vizir\\KeycloakWebGuard\\Models\\KeycloakUser/g' /app/www/config/auth.php
