@@ -23,7 +23,7 @@ pipeline {
   }
   environment {
     REGISTRY = "harbor.vc-prod.k.home.net"
-    HARBOR_CREDENTIAL = credentials('vc-prod-harbor-lido')
+    HARBOR_CREDENTIAL = credentials('vc-prod-harbor-docker-heimdall')
   }
   stages {
     stage('Git clone') {
