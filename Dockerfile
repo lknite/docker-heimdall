@@ -6,14 +6,13 @@ RUN \
  apk add --no-cache --upgrade \
    php8-phar \
    php8-dom && \
- curl -s https://getcomposer.org/installer | php && \
  echo "**** install composer ****" && \
  curl -s https://getcomposer.org/installer | php
 # echo "**** install oidc plugin ****" && \
 # php /composer.phar -d /var/www/localhost/heimdall/vendor require vizir/laravel-keycloak-web-guard --update-with-dependencies --with-all-dependencies
 
 # add local files
-COPY root/etc/cont-init.d/60-config-keycloak /etc/cont-init.d/
+#COPY root/etc/cont-init.d/60-config-keycloak /etc/cont-init.d/
 
 # echo "**** link /vendor to heimdall vendor folder ****" && \
 # mkdir /var/www/localhost/heimdall/vendor && \
