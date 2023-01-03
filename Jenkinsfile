@@ -21,6 +21,10 @@ pipeline {
         '''
     }
   }
+  environment {
+    REGISTRY = "harbor.vc-prod.k.home.net"
+    HARBOR_CREDENTIAL = credentials('vc-prod-harbor-lido')
+  }
   stages {
     stage('Git clone') {
       steps {
@@ -36,9 +40,10 @@ pipeline {
             sh "cp \"\$CABUNDLE\" /etc/ssl/certs/ca-bundle.crt"
           }
           sh 'docker logout harbor.vc-prod.k.home.net'
-          withCredentials([file(credentialsId: 'docker-config', variable: 'DOCKERCONFIG')]) {
-            sh "cp \"\$DOCKERCONFIG\" \$HOME/.docker/config.json"
-          }
+          //withCredentials([file(credentialsId: 'docker-config', variable: 'DOCKERCONFIG')]) {
+          //  sh "cp \"\$DOCKERCONFIG\" \$HOME/.docker/config.json"
+          //}
+          sh '''echo $HARBOR_CREDENTIAL_PSW | docker login $REGISTRY -u $HARBOR_CREDENTIAL_USR --password-stdin'''
           sh 'docker build --network host -t "harbor.vc-prod.k.home.net/library/docker-heimdall:0.0.${BUILD_NUMBER}" .'
           sh 'docker image push "harbor.vc-prod.k.home.net/library/docker-heimdall:0.0.${BUILD_NUMBER}"'
           sh 'docker build --network host -t "harbor.vc-prod.k.home.net/library/docker-heimdall:latest" .'
