@@ -29,7 +29,7 @@ pipeline {
     stage('Git clone') {
       steps {
         git branch: 'master', credentialsId: 'github-lknite',
-          url: 'https://github.com/lknite/docker-heimdall.git'
+          url: 'https://github.com/lknite/src-docker-heimdall.git'
       }
     }
     stage('Build container') {
